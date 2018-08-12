@@ -1,0 +1,4 @@
+- name: brew cask install when osX
+  when: ansible_os_family == 'Darwin'
+  homebrew_cask:
+    name: minishift

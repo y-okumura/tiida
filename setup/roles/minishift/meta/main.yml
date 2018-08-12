@@ -1,0 +1,3 @@
+dependencies:
+  - role: docker-machine-driver-xhyve
+    when: ansible_os_family == 'Darwin'
