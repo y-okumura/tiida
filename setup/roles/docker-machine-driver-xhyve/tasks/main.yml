@@ -1,9 +1,14 @@
 - name: brew install (this roll works on osX only)
   homebrew:
     name: docker-machine-driver-xhyve
-- name: change command group to wheel and grant set-user-ID-on-execution
+- name: change command owner root:wheel
   file:
     path: /usr/local/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
+    owner: root
     group: wheel
+  became: true
+- name: grant set-user-ID-on-execution
+  file:
+    path: /usr/local/opt/docker-machine-driver-xhyve/bin/docker-machine-driver-xhyve
     mode: u+s
   became: true
